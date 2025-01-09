@@ -68,6 +68,3 @@ DELETE FROM Employees WHERE EmployeeID = 1;
 
 DELETE FROM Employees;  -- DELETES ALL ROWS
 
-
-
-
