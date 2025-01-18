@@ -1,0 +1,2296 @@
+CONCEPTS:
+TOPIC 1 	:	 INTRODUCTION TO RDBMS
+TOPIC 2	:	 INTRODUCTION TO MICROSOFT SQL Server
+TOPIC 3 	:	SQL COMMANDS 
+  - DDL (DATA DEFINATION LANGUAGE)
+  - DML(DATA MANIPULATION LANGUAGE)
+  - DCL(DATA CONTROL LANGUAGE)
+  - TCL(TRANSACTION CONTROL LANGUAGE)
+  - DQL(DATA QUERY LANGUAGE)
+ TOPIC 4	:	INDEXES
+ TOPIC 5	:	SQL CLAUSES
+ TOPIC 6	:	WHERE CKLAUSE WITH AND, OR, <, >, = , BETWEEN, IN 
+ TOPIC 7	:	GROUP BY , GROUP BY WITH HAVING 
+ TOPIC 8	:	ORDER BY , ORDER BY WITH LIMIT 
+ TOPIC 9	:	CASE WHEN CONDITIONS
+ TOPIC 10	:	DERIVED COLUMNS 
+ TOPIC 11	:	DATE FUNCTIONS
+ TOPIC 12	:	JOINS 
+  - INNER JOIN
+  - LEFT JOIN 
+  - RIGHT JOIN
+  - FULL OUTER JOIN
+  TOPIC 13	:	UNION, UNION ALL, INTERSECTION, EXCEPT
+ TOPIC 14		:	VIEWS
+ TOPIC 15		:	CTE (COMMON TABLE EXPRESSION), RECURSIVE CTES
+ TOPIC 16		:	SUBQUERIES 
+ TOPIC 17 	:	STORED PROCEDURES 
+ TOPIC 18		:	TRIGGERS 
+ TOPIC 19		:	TRANSACTIONS 
+ 
+ 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOPIC1 : INTRODUCTION TO RDBMS 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+What is RDBMS?
+
+RDBMS stands for Relational Database Management System. It is a type of database management system that stores data in a structured format using tables, rows, and columns.
+
+Key Features of RDBMS
+
+1. Data Organization: Data is organized into tables with well-defined relationships between them.
+2. Data Integrity: Ensures data consistency and accuracy by enforcing rules and constraints.
+3. Data Security: Provides mechanisms for controlling access to data, such as user authentication and access control.
+4. Data Recovery: Supports backup and recovery mechanisms to ensure data availability in case of failures.
+
+RDBMS Components
+
+1. Database: A collection of related data.
+2. Tables: Structured collections of data, similar to spreadsheets.
+3. Rows: Individual entries or records in a table.
+4. Columns: Individual fields or attributes in a table.
+5. Primary Key: A unique identifier for each row in a table.
+6. Foreign Key: A field in a table that references the primary key of another table.
+7.VIEWS
+8.STORED PROCEDURES
+9.TRIGGERS
+10.TRANSACTIONS
+11.INDEXES
+
+Popular RDBMS
+
+1. MySQL
+2. PostgreSQL
+3. Microsoft SQL Server
+4. Oracle
+5. IBM DB2
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOPIC2: INTRODUCTION TO MICROSOFT SQL Server
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Microsoft SQL Server is a relational database management system (RDBMS) developed by Microsoft.
+
+Key Features
+
+1. Relational Database: Stores data in tables with well-defined relationships.
+2. SQL Support: Supports standard SQL (Structured Query Language) for querying and manipulating data.
+3. Security: Provides robust security features, including authentication, authorization, and encryption.
+4. Performance: Optimized for high-performance data processing and querying.
+5. Scalability: Supports large-scale databases and high-traffic applications.
+
+Tools
+
+1. SQL Server Management Studio (SSMS): Integrated development environment (IDE) for managing and querying databases.
+2. SQL Server Data Tools (SSDT): Set of tools for developing and deploying databases.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+TOPIC3: MS SQL SERVER DATATYPES
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Integer Data Types
+
+- int: Whole numbers, e.g. 1, 2, 3, etc.
+    - Example: DECLARE @age int = 25;
+- bigint: Large whole numbers, e.g. 1, 2, 3, etc.
+    - Example: DECLARE @population bigint = 1000000;
+- smallint: Small whole numbers, e.g. 1, 2, 3, etc.
+    - Example: DECLARE @score smallint = 85;
+- tinyint: Very small whole numbers, e.g. 0, 1, 2, etc.
+    - Example: DECLARE @flag tinyint = 1;
+
+Decimal Data Types
+
+- float:  3.14
+- decimal: Decimal numbers, e.g. 10.99, 3.14,86877 etc.
+    - Example: decimal(10, 2) = 19.99;
+- numeric: Decimal numbers, e.g. 10.99, 3.14, etc.
+      - Represents fixed precession and scale , 5 is the scale that it allows digits within 5 digit range and allows 2 decimal values beside point 
+    - Example: DECLARE @quantity numeric(5, 2) = 100.50;
+
+Character Data Types
+
+- char: Fixed-length character strings, e.g. 'hello', 'world', etc.
+    - Example: DECLARE @initials char(3) = 'ABC';
+- varchar: Variable-length character strings, e.g. 'hello', 'world', etc.
+    - Example: DECLARE @name varchar(50) = 'John Doe';
+- text: Large character strings, e.g. articles, documents, etc.
+    - Example: DECLARE @description text = 'This is a sample description.';
+- nchar: Fixed-length Unicode character strings, e.g. 'hello', 'world', etc.
+    - Example: DECLARE @unicode_initials nchar(3) = 'ABC';
+- nvarchar: Variable-length Unicode character strings, e.g. 'hello', 'world', etc.
+    - Example: DECLARE @unicode_name nvarchar(50) = 'John Doe';
+
+Date and Time Data Types
+
+- date: Dates, e.g. '2022-01-01', '2022-12-31', etc.
+    - Example: DECLARE @birthdate date = '1990-01-01';
+- time: Times, e.g. '12:00:00', '23:59:59', etc.
+    - Example: DECLARE @starttime time = '08:00:00';
+- datetime: Dates and times, e.g. '2022-01-01 12:00:00', '2022-12-31 23:59:59', etc.
+    - Example: DECLARE @createdatetime datetime = '2022-01-01 12:00:00';
+- datetime2: Dates and times with higher precision, e.g. '2022-01-01 12:00:00.0000000', etc.
+    - Example: DECLARE @createdatetime2 datetime2 = '2022-01-01 12:00:00.0000000';
+- smalldatetime: Dates and times with lower precision, e.g. '2022-01-01 12:00:00', etc.
+    - Example: DECLARE @createdatetime_smalldatetime smalldatetime = '2022-01-01 12:00:00';
+	
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOPIC4: MS SQL SERVER COMMANDS
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+********************************************************************************************************************************************************************************************************
+DDL (DATA DEFINATION LANGUAGE):
+Defines the structure of database objects such as database, table, view, stored procedure, index etc;
+********************************************************************************************************************************************************************************************************
+
+Database Commands
+
+1. **CREATE DATABASE**: Creates a new database.
+
+CREATE DATABASE database_name;
+EX: CREATE DATABASE STUDENTSDB;
+
+2. **DROP DATABASE**: Deletes a database.
+
+DROP DATABASE database_name;
+EX: DROP STUDENTSDB;
+
+3. **ALTER DATABASE**: Modifies a database.
+
+ALTER DATABASE database_name MODIFY NAME = new_name;
+EX: ALTER DATABASE STUDENTSDB MODIFY NAME = NEWSTUDENTSDB
+
+4. **USE**: Switches to a different database.
+
+USE database_name;
+use studentDB
+
+
+## Table Commands
+
+1. **CREATE TABLE**: Creates a new table.
+
+CREATE TABLE table_name (
+column1 data_type,
+column2 data_type,
+...
+);
+-- Create a table for students
+CREATE TABLE Students (
+    StudentID INT,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    DateOfBirth DATE,
+    Email VARCHAR(100),
+    Phone BIGINT
+);
+
+2. **DROP TABLE**: Deletes a table.
+
+DROP TABLE table_name;
+DROP TABLE STUDENTS;
+
+3. **ALTER TABLE**: Modifies a table.
+
+--Adding a New Column
+ALTER TABLE TABLE_NAME ADD COLUMN_NAME DATATYPE;
+
+EX: ALTER TABLE Students ADD Gender VARCHAR(10);
+
+--MODIFYING DATATYPE
+
+ALTER TABLE TABLE_NAME ALTER COLUMN COLUMN_NAME DATATYPE
+EX: ALTER TABLE Students ALTER COLUMN Gender CHAR;
+
+--RENAMING COLUMN 
+
+EXEC sp_rename 'OLD_COLUMN_NAME', 'NEW_COLUMN_NAME', 'COLUMN';
+
+EX: EXEC sp_rename 'Students.Phone', 'MobileNumber', 'COLUMN';
+
+--RENAMING TABLE 
+
+EXEC sp_rename 'OLD_TABLE_NAME', 'NEW_TABLE_NAME'
+
+EX: EXEC sp_rename 'StudentInfo', 'Students';
+
+4. **TRUNCATE TABLE**: Deletes all rows from a table.
+
+TRUNCATE TABLE table_name;
+
+EX: TRUNCATE TABLE STUDENTS;
+*********************************************************************************************************************************************************************************************************
+## Data Manipulation Commands
+*********************************************************************************************************************************************************************************************************
+1. **INSERT**: Inserts new rows into a table.
+
+INSERT INTO table_name (column1, column2, ...)
+VALUES (value1, value2, ...);
+
+-- Insert data into the Students table
+INSERT INTO Students (StudentID,FirstName, LastName, DateOfBirth, Email, Phone)
+VALUES 
+(1,'John', 'Doe', '1990-01-01', 'john.doe@example.com', 1234567890),
+(2,'Jane', 'Doe', '1992-02-02', 'jane.doe@example.com', 9876543210),
+(3,'Bob', 'Smith', '1995-03-03', 'bob.smith@example.com', 5551234567);
+
+2. **UPDATE**: Updates existing rows in a table.
+
+UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition;
+
+--Update data 
+UPDATE STUDENTS SET FIRSTNAME = 'Johny' WHERE FIRSTNAME = 'John';
+
+3. **DELETE**: Deletes rows from a table.
+
+DELETE FROM table_name
+WHERE condition;
+
+--Delete 
+DELETE FROM STUDENTS WHERE LASTNAME = 'Smith' or lastname = 'Doe';
+
+***************************************************************************************************************************************************************************************************
+DCL(DATA CONTROL LANGUAGE) - TO SET PERMISSIONS TO THE USERS ON THE DATA;
+***************************************************************************************************************************************************************************************************
+STEP1: CREATE LOGIN kranthi-has\krant FROM WINDOWS;
+STEP2: CREATE USER krant FOR LOGIN kranthi-has\krant;
+STEP3: GRANT/REVOKE/DENY SELECT , INSERT, UPDATE, DELETE ON STUDENTS TO krant
+EX:
+--GRANT SELECT , INSERT, UPDATE, DELETE ON STUDENTS TO krant
+--REVOKE SELECT , INSERT, UPDATE, DELETE ON STUDENTS TO krant
+--DENY SELECT , INSERT, UPDATE, DELETE ON STUDENTS TO krant
+
+**************************************************************************************************************************************************************************************************
+TCL(TRANSACTION CONTROL LANGUAGE) - COMMANDS WHICH ARE USED TO MANAGE TRANSACTIONS IN THE DATABASE.
+**************************************************************************************************************************************************************************************************
+
+COMMIT, Rollback, SAVEPOINT
+
+COMMIT
+
+Commits the current transaction and makes all changes permanent.
+
+BEGIN TRANSACTION
+UPDATE STUDENTS SET FIRSTNAME = 'JOHNY' WHERE FIRSTNAME = 'JOHN'
+
+COMMIT 
+END
+
+
+ROLLBACK
+
+Rolls back the current transaction and undoes all changes made since the transaction began.
+
+
+BEGIN TRANSACTION
+UPDATE STUDENTS SET FIRSTNAME = 'JOHNY' WHERE FIRSTNAME = 'JOHN'
+
+ROLLBACK 
+END
+
+SAVE TRANSACTION
+
+Saves the current transaction to a savepoint, allowing you to roll back to that point later.
+
+BEGIN TRANSACTION
+UPDATE STUDENTS SET FIRSTNAME = 'JOHNY' WHERE FIRSTNAME = 'JOHN'
+SAVE TRANSACTION S1
+UPDATE STUDENTS SET FIRSTNAME = 'SMITHS' WHERE FIRSTNAME = 'SMITH'
+ROLLBACK  S1
+END
+
+*************************************************************************************************************************************************************************************************************
+DQL(DATA QUERY LANGUAGE) - USED TO FETCH DATA FROM THE DATABASE OBJECTS SUCH AS TABLES, VIEWS, CTE, STORED_PROCEDURE, TRIGGERS ECT;
+*************************************************************************************************************************************************************************************************************
+EX: 
+SELECT * FROM STUDENTS;
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOPIC5: IMPORTANT TERMINOLOGIES:
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Metadata
+
+- Data about data
+- Provides information about data elements
+- Examples: TABLE/VIEW/SP ETC CREATION DATE, MODIFIED DATE
+
+Schema
+
+- Overall structure of a database or dataset
+- Defines relationships between data entities
+- Examples: database tables, XML structure, data warehouse organization
+
+In short: Metadata describes individual data elements, while Schema describes the overall structure and organization of the data.
+
+Here's a small example:
+
+Metadata
+
+- StudentID: 101
+- Name: John Doe
+- Age: 20
+
+Schema
+
+- Students table:
+    - StudentID (primary key)
+    - Name
+    - Age
+    - Grade
+
+In this example:
+
+- Metadata provides information about a specific student (John Doe).
+- Schema defines the overall structure of the Students table, including the columns and their relationships.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOPIC6: ACID PROPERTIES
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ACID properties work together to ensure that database transactions are processed reliably and securely.
+
+Atomicity
+
+- Definition: Ensures that database transactions are treated as a single, indivisible unit.
+- Example: Transferring money from one account to another. If the transaction fails, the money is not deducted from the source account.
+
+Consistency
+
+- Definition: Ensures that the database remains in a consistent state, even after multiple transactions.
+- Example: A bank's database has a rule that the account balance cannot be negative. If a transaction tries to withdraw more money than the account balance, the transaction is rolled back to maintain consistency.
+
+Isolation
+
+- Definition: Ensures that multiple transactions can occur concurrently without interfering with each other.
+- Example: Two users, A and B are trying to book the same flight. The database ensures that only one user can book the flight, while the other user is notified that the flight is no longer available.
+
+Durability
+
+- Definition: Ensures that once a transaction is committed, its effects are permanent and survive even in the event of a system failure.
+- Example: After a user submits an order, the database ensures that the order is recorded and cannot be lost, even if the system crashes or restarts.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOPIC7: CONTRAINTS
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Constraints
+
+Constraints are rules that are applied to the data in a database to ensure data integrity and consistency.
+
+Types of Constraints
+
+1. Primary Key (PK) Constraint: Uniquely identifies each row in a table.
+2. Foreign Key (FK) Constraint: Ensures to establish relation between tables.
+3. Unique Constraint: Ensures that each value in a column is unique.
+4. Not Null Constraint: Ensures that a column cannot contain null values.
+5. Check Constraint: Ensures that the data in a column meets a specific condition.
+6. Default Constraint: Provides a default value for a column when no value is specified.
+
+EXAMPLE:
+
+CREATE TABLE Students (
+    StudentID int  PRIMARY KEY,
+    Name nvarchar(255) NOT NULL,
+    EmailAddress nvarchar(255)  UNIQUE,
+    Age int CHECK (Age >= 18),
+    DepartmentID int,
+    Status varchar(255) DEFAULT 'Active'
+);
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOPIC8 : INDEXES
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Indexes
+
+Indexes are data structures that improve the speed of data retrieval in a database.
+
+
+Types of Indexes
+
+1. Clustered Index:
+    - Reorders the physical records of the table according to the index keys.
+    - Only one clustered index can be created on a table.
+    - Faster for range queries and sequential access.
+
+2. Non-Clustered Index:
+    - Creates a separate data structure that contains the index keys and pointers to the physical records.
+    - Multiple non-clustered indexes can be created on a table.
+    - Faster for random access and queries that use the index keys.
+	
+	
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOPIC9 : QUERIES
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SQL QUERY WRTING ORDER
+
+/*
+SELECT
+FROM
+JOIN
+WHERE
+GROUP BY
+HAVING
+ORDER BY
+LIMIT
+*/
+
+SQL QUERY EXECUTION ORDER
+
+The execution order of a SQL query is as follows:
+
+1. FROM: The database engine first identifies the tables or views specified in the FROM clause.
+
+2. JOIN: If there are any JOIN operations, the database engine performs these next.
+
+3. WHERE: The engine then applies the filters specified in the WHERE clause to eliminate any rows that do not meet the conditions.
+
+4. GROUP BY: If there is a GROUP BY clause, the engine groups the remaining rows according to the specified columns.
+
+5. HAVING: If there is a HAVING clause, the engine applies the filters to the grouped rows.
+
+6. SELECT: The engine then selects the columns specified in the SELECT clause.
+
+7. DISTINCT: If the SELECT clause includes the DISTINCT keyword, the engine removes any duplicate rows.
+
+8. ORDER BY: Finally, if there is an ORDER BY clause, the engine sorts the remaining rows according to the specified columns.
+
+9. LIMIT: If there is a LIMIT clause, the engine returns only the specified number of rows.
+
+This order is not strictly followed in all cases, as the database engine may optimize the query to improve performance. However, this is the general order in which the clauses are executed.
+
+*********************************************************************************************************************************************************************************************************************************
+*********************************************************************************************************************************************************************************************************************************
+BASIC SQL QUERY TO SELECT ALL COLUMNS:
+
+SELECT * FROM TABLE;
+
+BASIC SQL QUERY TO SELECT SPECIFIC ROWS FROM TABLE:
+
+SELECT COL1, COL2, COL3... FROM TABLE ;
+
+Specifying column names in SELECT statements optimizes queries by:
+
+- Reducing data transfer
+- Minimizing server processing
+- Improving query caching
+- Enhancing scalability
+- Reduces network traffic
+- Improves performance
+- Avoids column name conflicts
+- Improves code maintenance
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOPIC 10 : WHERE CLAUSE
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+The WHERE clause in SQL is used to filter records based on conditions. Here are some examples of using the WHERE clause:
+
+# Simple WHERE Clause
+
+SELECT *
+FROM customers
+WHERE country='USA';
+
+
+This query selects all customers from the USA.
+
+# WHERE Clause with Multiple Conditions
+
+SELECT *
+FROM customers
+WHERE country='USA' AND age>18;
+
+
+This query selects all customers from the USA who are older than 18.
+
+# WHERE Clause with OR Operator
+
+SELECT *
+FROM customers
+WHERE country='USA' OR country='Canada';
+
+
+This query selects all customers from the USA or Canada.
+
+# WHERE Clause with IN Operator
+
+SELECT *
+FROM customers
+WHERE country IN ('USA', 'Canada', 'Mexico');
+
+
+This query selects all customers from the USA, Canada, or Mexico.
+
+# WHERE Clause with BETWEEN Operator
+
+SELECT *
+FROM customers
+WHERE age BETWEEN 18 AND 65;
+
+
+This query selects all customers whose age is between 18 and 65.
+
+# WHERE Clause with LIKE Operator
+
+SELECT *
+FROM customers
+WHERE name LIKE '%John%';
+
+
+This query selects all customers whose name contains the string "John".
+
+# WHERE Clause with IS NULL Operator
+
+SELECT *
+FROM customers
+WHERE address IS NULL;
+
+
+This query selects all customers who do not have an address.
+
+# WHERE Clause with IS NOT NULL Operator
+
+SELECT *
+FROM customers
+WHERE address IS NOT NULL;
+
+
+This query selects all customers who have an address.
+
+*********************************************************************************************************************************************************************************************************************************
+In SQL, NULL is not used for direct comparison because:
+
+NULL is unknown or missing value, not a specific value.
+
+Comparing NULL to any value (including NULL) using =, <, >, etc. returns NULL (unknown), not TRUE or FALSE.
+
+Instead, use:
+
+IS NULL to check for NULL values.
+
+IS NOT NULL to check for non-NULL values.
+**********************************************************************************************************************************************************************************************************************************
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOIC11 : GROUP BY Clause
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+GROUP BY is a SQL clause that:
+
+Groups rows of a table by one or more columns.
+Aggregates data for each group using functions like SUM, AVG, MAX, MIN, count.
+Returns a result set with one row per group.
+
+GROUP BY CONDITIONS:
+
+1. All Non-Aggregated Columns Must Be Included
+
+Example:
+
+Suppose we have a table called Sales with the following columns:
+
+| CustomerID | SaleDate | Amount |
+| --- | --- | --- |
+| 1 | 2022-01-01 | 100 |
+| 1 | 2022-01-15 | 200 |
+| 2 | 2022-02-01 | 50 |
+| 2 | 2022-02-15 | 75 |
+
+To get the total sales for each customer, we need to include the CustomerID column in the GROUP BY clause:
+
+
+SELECT 
+  CustomerID,
+  SUM(Amount) AS TotalSales
+FROM 
+  Sales
+GROUP BY 
+  CustomerID;
+
+
+Result:
+
+| CustomerID | TotalSales |
+| --- | --- |
+| 1 | 300 |
+| 2 | 125 |
+
+2. Columns Must Match Select Statement
+
+Example:
+
+Suppose we have the same Sales table as above.
+
+To get the total sales for each customer and sale date, we need to include both the CustomerID and SaleDate columns in the GROUP BY clause:
+
+
+SELECT 
+  CustomerID,
+  SaleDate,
+  SUM(Amount) AS TotalSales
+FROM 
+  Sales
+GROUP BY 
+  CustomerID,
+  SaleDate;
+
+
+Result:
+
+| CustomerID | SaleDate | TotalSales |
+| --- | --- | --- |
+| 1 | 2022-01-01 | 100 |
+| 1 | 2022-01-15 | 200 |
+| 2 | 2022-02-01 | 50 |
+| 2 | 2022-02-15 | 75 |
+
+GROUP BY WITH MULTIPLE COLUMNS:
+
+Group by with multiple columns involves Cardinality differences of columns.
+
+In SQL:
+
+- High Cardinality Column: A column with a large number of unique values. Examples: primary key, email address, phone number.
+- Low Cardinality Column: A column with a small number of unique values. Examples: gender, country, status (active/inactive).
+
+When GROUP BY consists of one high cardinality column and one low cardinality column, the grouping primarily occurs based on the high cardinality column because:
+
+The high cardinality column has a large number of unique values, which dominates the grouping process.
+
+The low cardinality column has a small number of unique values, which has a minimal impact on the grouping process.
+
+As a result, the grouping is essentially done based on the high cardinality column, and the low cardinality column is merely "tagging along".
+
+
+Let's explore how the cardinality of the Department and ID columns affects the GROUP BY clause.
+
+Assuming we have a table Employees with the following columns:
+
+| ID (High Cardinality) | Department (Low Cardinality) | Salary |
+| --- | --- | --- |
+| 1 | Sales | 50000 |
+| 2 | Sales | 60000 |
+| 3 | Marketing | 70000 |
+| 4 | Marketing | 80000 |
+| 5 | Sales | 90000 |
+
+GROUP BY Department (Low Cardinality)
+
+
+SELECT 
+  Department,
+  SUM(Salary) AS TotalSalary
+FROM 
+  Employees
+GROUP BY 
+  Department;
+
+
+Result:
+
+| Department | TotalSalary |
+| --- | --- |
+| Sales | 200000 |
+| Marketing | 150000 |
+
+In this case, the GROUP BY clause groups the employees by department, which has low cardinality. The result set is relatively small, with only two groups.
+
+GROUP BY ID (High Cardinality)
+
+
+SELECT 
+  ID,
+  SUM(Salary) AS TotalSalary
+FROM 
+  Employees
+GROUP BY 
+  ID;
+
+
+Result:
+
+| ID | TotalSalary |
+| --- | --- |
+| 1 | 50000 |
+| 2 | 60000 |
+| 3 | 70000 |
+| 4 | 80000 |
+| 5 | 90000 |
+
+In this case, the GROUP BY clause groups the employees by ID, which has high cardinality. The result set is much larger, with each employee having their own group.
+
+GROUP BY Department, ID (Mixed Cardinality)
+
+
+SELECT 
+  Department,
+  ID,
+  SUM(Salary) AS TotalSalary
+FROM 
+  Employees
+GROUP BY 
+  Department,
+  ID
+  having sum(salary) > 50000;
+
+
+Result:
+
+| Department | ID | TotalSalary |
+| --- | --- | --- |
+| Sales | 1 | 50000 |
+| Sales | 2 | 60000 |
+| Sales | 5 | 90000 |
+| Marketing | 3 | 70000 |
+| Marketing | 4 | 80000 |
+
+In this case, the GROUP BY clause groups the employees by both department (low cardinality) and ID (high cardinality). The result set is larger than the first example, but smaller than the second example.
+
+In summary, the cardinality of the columns used in the GROUP BY clause affects the size and granularity of the result set. Low cardinality columns tend to produce smaller result sets with fewer groups, while high cardinality columns produce larger result sets with more groups.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOPIC : 12 ORDER BY CLAUSE
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+The ORDER BY clause in SQL is used to sort the result-set in ascending or descending order. Here are some examples:
+
+# Example 1: Sorting in Ascending Order
+
+
+SELECT *
+FROM Customers
+ORDER BY Name ASC;
+
+
+This will return all columns (*) from the Customers table, sorted in ascending order by the Name column.
+
+# Example 2: Sorting in Descending Order
+
+
+SELECT *
+FROM Customers
+ORDER BY Age DESC;
+
+
+This will return all columns (*) from the Customers table, sorted in descending order by the Age column.
+
+# Example 3: Sorting by Multiple Columns
+
+
+SELECT *
+FROM Customers
+ORDER BY Country ASC, Age DESC;
+
+
+This will return all columns (*) from the Customers table, sorted first by the Country column in ascending order, and then by the Age column in descending order.
+
+When you use the ORDER BY clause with multiple columns, the ordering is done in the following way:
+
+1. The first column specified in the ORDER BY clause is used to sort the rows.
+2. If there are ties in the first column (i.e., multiple rows have the same value in the first column), the second column is used to break the tie.
+3. If there are still ties after using the second column, the third column is used, and so on.
+4. This process continues until all columns specified in the ORDER BY clause have been used.
+
+Here's an example to illustrate this:
+
+Suppose we have a table Employees with columns Department, JobTitle, and Salary. We want to sort the employees by department, then by job title, and finally by salary.
+
+
+SELECT *
+FROM Employees
+ORDER BY Department, JobTitle, Salary;
+
+
+Here's how the ordering would work:
+
+1. First, the employees are sorted by department. All employees in the same department are grouped together.
+2. Within each department group, the employees are sorted by job title. All employees with the same job title are grouped together.
+3. Within each job title group, the employees are sorted by salary.
+
+The resulting sorted list would have employees grouped by department, then by job title, and finally by salary.
+
+For example:
+
+| Department | JobTitle | Salary |
+| --- | --- | --- |
+| Sales | Manager | 100000 |
+| Sales | Manager | 90000 |
+| Sales | Salesperson | 60000 |
+| Marketing | Manager | 120000 |
+| Marketing | Specialist | 70000 |
+| IT | Developer | 80000 |
+| IT | Developer | 75000 |
+
+In this example, the employees are first grouped by department (Sales, Marketing, IT). 
+Within each department group, they are then grouped by job title (Manager, Salesperson, Specialist, Developer). Finally, within each job title group, they are sorted by salary.
+
+# Example 5: Sorting with LIMIT/ OFFSET-FETCH NEXT Clause
+
+
+SELECT *
+FROM Customers
+ORDER BY Age DESC
+OFFSET 0 ROWS FETCH NEXT 5 ROWS ONLY;
+
+
+This will return only the top 5 rows from the Customers table, sorted by the Age column in descending order.
+Or we can also use Top clause for fetching top rows (EX: select top 3 * from Customers)
+
+Top vs Offset - Fetch NEXT
+
+-Top  will fetch only top mentioned records where as Offset fetch next will fetch records based on offset row value and fetch next mentioned records.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOPIC 13: SQL QUERIES EXECUTION ORDER
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+The SQL execution order is the order in which the clauses in a SQL query are executed. Here is the correct order:
+
+1. FROM: The FROM clause is executed first, which specifies the tables or subqueries that are used in the query.
+
+2. JOIN: If there are any JOIN clauses, they are executed next. The JOIN clauses specify how the tables are combined.
+
+3. WHERE: The WHERE clause is executed next, which filters the rows based on the specified conditions.
+
+4. GROUP BY: If there is a GROUP BY clause, it is executed next. The GROUP BY clause groups the rows based on the specified columns.
+
+5. HAVING: The HAVING clause is executed next, which filters the groups based on the specified conditions.
+
+6. SELECT: The SELECT clause is executed next, which specifies the columns that are included in the result set.
+
+7. DISTINCT: If the DISTINCT keyword is used, it is executed next. The DISTINCT keyword removes duplicate rows from the result set.
+
+8. ORDER BY: The ORDER BY clause is executed next, which sorts the rows in the result set based on the specified columns.
+
+9. LIMIT: Finally, the LIMIT clause is executed, which limits the number of rows returned in the result set.
+
+Here's an example query that demonstrates the execution order:
+
+
+SELECT DISTINCT name, age
+FROM customers
+WHERE country = 'USA'
+GROUP BY name, age
+HAVING age > 18
+ORDER BY name
+LIMIT 10;
+
+Let's break down the example query step by step:
+
+# Step 1: FROM Clause
+The query starts by selecting data from the customers table.
+
+
+FROM customers
+
+
+# Step 2: WHERE Clause
+Next, the query filters the data to only include rows where the country column is 'USA'.
+
+
+WHERE country = 'USA'
+
+
+# Step 3: GROUP BY Clause
+The query then groups the remaining data by the name and age columns.
+
+
+GROUP BY name, age
+
+
+# Step 4: HAVING Clause
+Next, the query filters the grouped data to only include groups where the age is greater than 18.
+
+
+HAVING age > 18
+# Step 5: SELECT Clause
+The query then selects the name and age columns from the remaining data.
+
+
+SELECT DISTINCT name, age
+
+
+The DISTINCT keyword removes any duplicate rows from the result set.
+
+# Step 6: ORDER BY Clause
+The query then sorts the remaining data by the name column in ascending order.
+
+
+ORDER BY name
+
+
+# Step 7: LIMIT Clause
+Finally, the query limits the result set to only include the first 10 rows.
+
+
+LIMIT 10
+
+
+The final result set will contain the names and ages of the first 10 customers from the USA who are older than 18, sorted alphabetically by name.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOPIC 14 : SQL JOINS
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# INNER JOIN
+
+An inner join returns only the rows that have a match in both tables.
+
+
+SELECT *
+FROM customers
+INNER JOIN orders
+ON customers.customer_id = orders.customer_id;
+
+
+Example tables:
+
+Customers
+
+| customer_id | name | email |
+| --- | --- | --- |
+| 1 | John Smith | john.smith@example.com |
+| 2 | Jane Doe | jane.doe@example.com |
+| 3 | Bob Brown | bob.brown@example.com |
+
+Orders
+
+| order_id | customer_id | order_date |
+| --- | --- | --- |
+| 1 | 1 | 2022-01-01 |
+| 2 | 1 | 2022-01-15 |
+| 3 | 2 | 2022-02-01 |
+
+Result:
+
+| customer_id | name | email | order_id | order_date |
+| --- | --- | --- | --- | --- |
+| 1 | John Smith | john.smith@example.com | 1 | 2022-01-01 |
+| 1 | John Smith | john.smith@example.com | 2 | 2022-01-15 |
+| 2 | Jane Doe | jane.doe@example.com | 3 | 2022-02-01 |
+
+# LEFT JOIN
+
+A left join returns all the rows from the left table and the matching rows from the right table. If there are no matches, the result will contain NULL values.
+
+
+SELECT *
+FROM customers
+LEFT JOIN orders
+ON customers.customer_id = orders.customer_id;
+
+
+Result:
+
+| customer_id | name | email | order_id | order_date |
+| --- | --- | --- | --- | --- |
+| 1 | John Smith | john.smith@example.com | 1 | 2022-01-01 |
+| 1 | John Smith | john.smith@example.com | 2 | 2022-01-15 |
+| 2 | Jane Doe | jane.doe@example.com | 3 | 2022-02-01 |
+| 3 | Bob Brown | bob.brown@example.com | NULL | NULL |
+
+# RIGHT JOIN
+
+A right join is similar to a left join, but it returns all the rows from the right table and the matching rows from the left table.
+
+
+SELECT *
+FROM customers
+RIGHT JOIN orders
+ON customers.customer_id = orders.customer_id;
+
+
+Result:
+
+| customer_id | name | email | order_id | order_date |
+| --- | --- | --- | --- | --- |
+| 1 | John Smith | john.smith@example.com | 1 | 2022-01-01 |
+| 1 | John Smith | john.smith@example.com | 2 | 2022-01-15 |
+| 2 | Jane Doe | jane.doe@example.com | 3 | 2022-02-01 |
+| NULL | NULL | NULL | 4 | 2022-03-01 |
+
+# FULL OUTER JOIN
+
+A full outer join returns all the rows from both tables, with NULL values in the columns where there are no matches.
+
+SELECT *
+FROM customers
+FULL OUTER JOIN orders
+ON customers.customer_id = orders.customer_id;
+
+
+Result:
+
+| customer_id | name | email | order_id | order_date |
+| --- | --- | --- | --- | --- |
+| 1 | John Smith | john.smith@example.com | 1 | 2022-01-01 |
+| 1 | John Smith | john.smith@example.com | 2 | 2022-01-15 |
+| 2 | Jane Doe | jane.doe@example.com | 3 | 2022-02-01 |
+| 3 | Bob Brown | bob.brown@example.com | NULL | NULL |
+| NULL | NULL | NULL | 4 | 2022-03-01 |
+
+# CROSS JOIN
+
+A cross join returns the Cartesian product of both tables, with each row of one table combined with each row of the other table.
+
+
+SELECT *
+FROM customers
+CROSS JOIN orders;
+
+Result:
+
+| customer_id | name | email | order_id | order_date |
+| --- | --- | --- | --- | --- |
+| 1 | John Smith | john.smith@example.com | 1 | 2022-01-01 |
+| 1 | John Smith | john.smith@example.com | 2 | 2022-01-15 |
+| 1 | John Smith | john.smith@example.com | 3 | 2022-02-01 |
+| 2 | Jane Doe | jane.doe@example.com | 1 | 2022-01-01 |
+| 2 | Jane Doe | jane.doe@example.com | 2 | 2022-01-15 |
+| ... | ... | ... | ... | ... |
+
+
+Here are some guidelines on when to use inner joins and left joins:
+
+# Inner Join
+Use an inner join when:
+
+1. You want to retrieve only the matching rows: Inner joins return only the rows that have a match in both tables.
+2. You want to eliminate null values: Inner joins exclude rows with null values in the join column.
+3. You want to perform aggregate functions: Inner joins are useful when you need to perform aggregate functions like SUM, COUNT, or AVG on the joined data.
+
+Example use case:
+
+Suppose you have two tables: orders and customers. You want to retrieve the order details for customers who have placed an order.
+
+
+SELECT orders.order_id, customers.customer_name
+FROM orders
+INNER JOIN customers
+ON orders.customer_id = customers.customer_id;
+
+
+# Left Join
+Use a left join when:
+
+1. You want to retrieve all the rows from the left table: Left joins return all the rows from the left table, even if there are no matches in the right table.
+2. You want to include null values: Left joins include rows with null values in the join column.
+3. You want to perform analysis on the left table: Left joins are useful when you need to perform analysis on the left table, even if there are no matches in the right table.
+
+Example use case:
+
+Suppose you have two tables: customers and orders. You want to retrieve a list of all customers, including those who have not placed an order.
+
+
+SELECT customers.customer_name, orders.order_id
+FROM customers
+LEFT JOIN orders
+ON customers.customer_id = orders.customer_id;
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOPIC 15 : VIEWS
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+A view in SQL Server is a virtual table based on the result of a query. Here are the key aspects of views in SQL Server:
+
+# Benefits of Views
+
+1. Simplifies complex queries: Views can simplify complex queries by breaking them down into smaller, more manageable pieces.
+2. Improves data security: Views can be used to restrict access to sensitive data by only granting access to the view, rather than the underlying tables.
+3. Enhances data abstraction: Views can provide a layer of abstraction between the physical tables and the application, making it easier to change the underlying schema without affecting the application.
+
+# Types of Views
+
+1. Simple View: A simple view is based on a single table or a simple query.
+2. Complex View: A complex view is based on a complex query that involves multiple tables, joins, and aggregations.
+
+# Creating a View
+
+To create a view, you use the CREATE VIEW statement followed by the name of the view and the query that defines the view.
+CREATE VIEW CustomerOrders AS
+SELECT c.CustomerName, o.OrderID, o.OrderDate
+FROM Customers c
+INNER JOIN Orders o ON c.CustomerID = o.CustomerID;
+
+
+# Altering a View
+
+To alter a view, you use the ALTER VIEW statement followed by the name of the view and the modified query.
+
+
+ALTER VIEW CustomerOrders AS
+SELECT c.CustomerName, o.OrderID, o.OrderDate, o.Total
+FROM Customers c
+INNER JOIN Orders o ON c.CustomerID = o.CustomerID;
+
+
+# Dropping a View
+
+To drop a view, you use the DROP VIEW statement followed by the name of the view.
+
+
+DROP VIEW CustomerOrders;
+--===========================iiiiiiiiiiiiiiiiiiiiiiiiiii9999999999jjjjjjjjjjjjo=0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.8895///////////////////////////////////////////;0i\88-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOPIC 16 : COMMON TABLE EXPRESSION (CTE)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+A Common Table Expression (CTE) is a temporary result set that you can reference within a SELECT, INSERT, UPDATE, or DELETE statement. 
+
+Here are the key aspects of CTEs:
+
+# Benefits of CTEs
+
+1. Simplifies complex queries: CTEs can simplify complex queries by breaking them down into smaller, more manageable pieces.
+2. Improves readability: CTEs can improve the readability of queries by providing a clear and concise way to define intermediate result sets.
+3. Reduces code duplication: CTEs can reduce code duplication by allowing you to define a result set once and reference it multiple times within a query.
+
+# Creating a CTE
+
+To create a CTE, you use the WITH keyword followed by the name of the CTE and the query that defines the CTE.
+
+
+WITH SalesCTE AS (
+  SELECT product_id, SUM(sales_amount) AS total_sales
+  FROM sales
+  GROUP BY product_id
+)
+SELECT *
+FROM SalesCTE
+WHERE total_sales > 1000;
+
+
+# Types of CTEs
+
+1. Non-recursive CTE: A non-recursive CTE is a CTE that does not reference itself.
+2. Recursive CTE: A recursive CTE is a CTE that references itself.
+
+# Recursive CTE Example
+
+
+WITH RecursiveCTE AS (
+  SELECT employee_id, manager_id, 0 AS level
+  FROM employees
+  WHERE manager_id IS NULL
+  UNION ALL
+  SELECT e.employee_id, e.manager_id, level + 1
+  FROM employees e
+  INNER JOIN RecursiveCTE m ON e.manager_id = m.employee_id
+)
+SELECT *
+FROM RecursiveCTE;
+
+
+# CTE Limitations
+
+1. CTEs can only be used within a single query: CTEs cannot be used across multiple queries.
+2. CTEs cannot be used with INSERT, UPDATE, or DELETE statements: CTEs can only be used with SELECT statements.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOPIC 17 : SUBQUERIES
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+A subquery in SQL Server is a query nested inside another query. The subquery is used to retrieve data that will be used in the main query. Here are the key aspects of subqueries in SQL Server:
+
+# Types of Subqueries
+
+1. Single-row subquery: Returns only one row.
+2. Multiple-row subquery: Returns multiple rows.
+3. Correlated subquery: References the outer query.
+
+# Subquery Syntax
+
+
+SELECT column1, column2
+FROM table1
+WHERE column1 = (SELECT column1 FROM table2 WHERE condition);
+
+
+# Examples of Subqueries
+
+Single-row subquery
+
+SELECT *
+FROM employees
+WHERE salary = (SELECT MAX(salary) FROM employees);
+
+
+Multiple-row subquery
+
+SELECT *
+FROM employees
+WHERE department IN (SELECT department FROM departments WHERE location = 'New York');
+
+
+Correlated subquery
+
+SELECT *
+FROM employees e
+WHERE salary > (SELECT AVG(salary) FROM employees WHERE department = e.department);
+
+
+# Subquery Operators
+
+1. IN: Used to compare a value to a list of values.
+2. EXISTS: Used to check if a subquery returns any rows.
+3. NOT EXISTS: Used to check if a subquery does not return any rows.
+4. =, *<>, =, <, >: Used to compare a value to a single value returned by a subquery.
+
+# Subquery Best Practices
+
+1. Use subqueries sparingly: Subqueries can impact performance.
+2. Use EXISTS instead of IN: EXISTS can be more efficient than IN.
+3. Avoid correlated subqueries: Correlated subqueries can impact performance.
+4. Use derived tables instead of subqueries: Derived tables can be more efficient than subqueries.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOPIC 18 : VIEW VS CTE VS Subquery
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Here's a short note summarizing the key differences between views, CTEs, and subqueries:
+
+Views: Permanent, reusable, updatable (limited), indexable.
+
+CTEs: Temporary, reusable, not updatable, not indexable.
+
+Subqueries: Temporary, not reusable, not updatable, not indexable.
+
+Here's a short note on when to use each:
+
+- View: Use when you need to reuse a complex query, provide data abstraction, or simplify data access.
+- CTE: Use when you need to simplify a complex query, perform recursive operations, or improve query readability.
+- Subquery: Use when you need to perform a one-time calculation, retrieve data that's not easily accessible through a join, or simplify a complex query.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+CASE WHEN LOGIC
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Here's a brief overview of CASE WHEN logic:
+
+# What is CASE WHEN?
+CASE WHEN is a conditional statement in SQL that allows you to perform different actions based on different conditions.
+
+# Syntax
+The basic syntax of CASE WHEN is:
+
+CASE
+WHEN condition1 THEN result1
+WHEN condition2 THEN result2
+...
+ELSE resultN
+END
+
+# How it Works
+1. The CASE statement evaluates each condition in order.
+2. If a condition is true, the corresponding result is returned.
+3. If none of the conditions are true, the result specified in the ELSE clause is returned.
+
+# Types of CASE WHEN
+1. Simple CASE: Used for simple conditional statements.
+2. Searched CASE: Used for more complex conditional statements.
+
+# Advantages
+1. Improved readability: Makes complex conditional statements easier to read.
+2. Reduced errors: Reduces the chance of errors caused by complex conditional statements.
+
+# Common Use Cases
+1. Data transformation: Used to transform data based on certain conditions.
+2. Data filtering: Used to filter data based on certain conditions.
+3. Data aggregation: Used to aggregate data based on certain conditions.
+
+*******************************************************************************************************************************************************************************************************
+# Simple CASE WHEN
+******************************************************************************************************************************************************************************************************
+This example uses a simple CASE WHEN statement to categorize employees based on their salary.
+
+- CASE: Begins the CASE WHEN statement.
+- WHEN Salary > 50000 THEN 'High': If the salary is greater than 50000, then return 'High'.
+- WHEN Salary BETWEEN 30000 AND 50000 THEN 'Medium': If the salary is between 30000 and 50000, then return 'Medium'.
+- ELSE 'Low': If none of the above conditions are met, then return 'Low'.
+- END AS SalaryCategory: Ends the CASE WHEN statement and assigns the result to a new column called SalaryCategory.
+******************************************************************************************************************************************************************************************************
+# CASE WHEN with Aggregate Functions
+*******************************************************************************************************************************************************************************************************
+This example uses a CASE WHEN statement with an aggregate function (AVG) to categorize departments based on their average salary.
+
+- AVG(Salary) AS AverageSalary: Calculates the average salary for each department.
+- CASE WHEN AVG(Salary) > 60000 THEN 'High': If the average salary is greater than 60000, then return 'High'.
+- WHEN AVG(Salary) BETWEEN 40000 AND 60000 THEN 'Medium': If the average salary is between 40000 and 60000, then return 'Medium'.
+- ELSE 'Low': If none of the above conditions are met, then return 'Low'.
+- END AS DepartmentSalaryCategory: Ends the CASE WHEN statement and assigns the result to a new column called DepartmentSalaryCategory.
+
+*******************************************************************************************************************************************************************************************************
+# CASE WHEN with Subqueries
+*******************************************************************************************************************************************************************************************************
+This example uses a CASE WHEN statement with a subquery to compare an employee's salary to the average salary of all employees.
+
+- CASE WHEN Salary > (SELECT AVG(Salary) FROM Employees) THEN 'Above Average': If the employee's salary is greater than the average salary of all employees, then return 'Above Average'.
+- ELSE 'Below Average': If the employee's salary is not greater than the average salary of all employees, then return 'Below Average'.
+- END AS SalaryComparison: Ends the CASE WHEN statement and assigns the result to a new column called SalaryComparison.
+
+*******************************************************************************************************************************************************************************************************
+# CASE WHEN with Multiple Conditions
+*******************************************************************************************************************************************************************************************************
+This example uses a CASE WHEN statement with multiple conditions to categorize employees based on their salary and department.
+
+- CASE WHEN Salary > 50000 AND Department = 'Sales' THEN 'High Sales': If the employee's salary is greater than 50000 and their department is 'Sales', then return 'High Sales'.
+- WHEN Salary BETWEEN 30000 AND 50000 AND Department = 'Marketing' THEN 'Medium Marketing': If the employee's salary is between 30000 and 50000 and their department is 'Marketing', then return 'Medium Marketing'.
+- ELSE 'Other': If none of the above conditions are met, then return 'Other'.
+- END AS EmployeeCategory: Ends the CASE WHEN statement and assigns the result to a new column called EmployeeCategory.
+
+*******************************************************************************************************************************************************************************************************
+# CASE WHEN with NULL Values
+*******************************************************************************************************************************************************************************************************
+This example uses a CASE WHEN statement to handle NULL values in the Salary column.
+
+- CASE WHEN Salary IS NULL THEN 'No Salary': If the Salary column is NULL, then return 'No Salary'.
+- WHEN Salary > 50000 THEN 'High': If the Salary column is greater than 50000, then return 'High'.
+- ELSE 'Low': If none of the above conditions are met, then return 'Low'.
+- END AS SalaryCategory: Ends the CASE WHEN statement and assigns the result to a new column called SalaryCategory.
+
+*******************************************************************************************************************************************************************************************************
+# CASE WHEN with GROUP BY
+*******************************************************************************************************************************************************************************************************
+- Used to perform conditional aggregation
+- Allows you to apply different aggregation functions based on conditions
+
+Example:
+
+SELECT 
+  Department,
+  SUM(CASE WHEN Salary > 50000 THEN Salary ELSE 0 END) AS TotalHighSalaries
+FROM Employees
+GROUP BY Department;
+
+Explanation: This query groups employees by department and calculates the total salary for each department, but only includes salaries above 50000.
+*******************************************************************************************************************************************************************************************************
+# CASE WHEN with GROUP BY and HAVING
+*******************************************************************************************************************************************************************************************************
+- Used to filter groups based on conditions
+- Allows you to apply conditions to aggregated values
+
+Example:
+
+SELECT 
+  Department,
+  AVG(Salary) AS AverageSalary
+FROM Employees
+GROUP BY Department
+HAVING AVG(CASE WHEN Salary > 50000 THEN Salary ELSE NULL END) > 60000;
+
+Explanation: This query groups employees by department, calculates the average salary for each department, and only includes departments 
+where the average salary for employees with salaries above 50000 is greater than 60000.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+UNION, UNION ALL
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# UNION
+The UNION operator combines the result-set of two or more SELECT statements into a single result-set. It removes duplicate rows between the various SELECT statements.
+
+# Syntax
+
+SELECT column_name(s) FROM table1
+UNION
+SELECT column_name(s) FROM table2;
+
+
+# Example
+Suppose we have two tables:
+
+Table1: Customers
+
+| CustomerID | Name |
+|-------------|------|
+| 1           | John |
+| 2           | Emma |
+| 3           | Michael|
+
+Table2: Suppliers
+
+| SupplierID | Name |
+|-------------|------|
+| 1           | John |
+| 4           | Sophia |
+| 5           | William|
+
+To combine the result-set of both tables using UNION:
+
+
+SELECT Name FROM Customers
+UNION
+SELECT Name FROM Suppliers;
+
+
+Result:
+
+| Name     |
+|----------|
+| John     |
+| Emma     |
+| Michael  |
+| Sophia   |
+| William  |
+
+Note that the duplicate row for "John" is removed.
+
+# UNION ALL
+The UNION ALL operator combines the result-set of two or more SELECT statements into a single result-set. It includes all rows from both SELECT statements, including duplicates.
+
+# Syntax
+
+SELECT column_name(s) FROM table1
+UNION ALL
+SELECT column_name(s) FROM table2;
+
+
+# Example
+Using the same tables as before:
+
+
+SELECT Name FROM Customers
+UNION ALL
+SELECT Name FROM Suppliers;
+
+
+Result:
+
+| Name     |
+|----------|
+| John     |
+| Emma     |
+| Michael  |
+| John     |
+| Sophia   |
+| William  |
+
+Note that the duplicate row for "John" is included.
+
+Here are the rules for using UNION and UNION ALL:
+
+# UNION Rules
+1. Same number of columns: The number of columns in each SELECT statement must be the same.
+2. Similar data types: The data types of the columns in each SELECT statement must be similar.
+3. Column order: The columns in each SELECT statement must be in the same order.
+4. No duplicate columns: UNION removes duplicate rows, including duplicate columns.
+5. Only SELECT statements: UNION can only be used with SELECT statements.
+
+# UNION ALL Rules
+1. Same number of columns: The number of columns in each SELECT statement must be the same.
+2. Similar data types: The data types of the columns in each SELECT statement must be similar.
+3. Column order: The columns in each SELECT statement must be in the same order.
+4. Duplicate columns allowed: UNION ALL includes duplicate rows, including duplicate columns.
+5. Only SELECT statements: UNION ALL can only be used with SELECT statements.
+
+# Key Differences
+1. Duplicate rows: UNION removes duplicate rows, while UNION ALL includes duplicate rows.
+2. Performance: UNION ALL is generally faster than UNION because it doesn't require removing duplicates.
+
+# Best Practices
+1. Use UNION for distinct rows: Use UNION when you want to combine rows from multiple tables and remove duplicates.
+2. Use UNION ALL for all rows: Use UNION ALL when you want to combine rows from multiple tables and include duplicates.
+3. Check data types: Make sure the data types of the columns in each SELECT statement are similar.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+EXCEPT,INTERSECT, IF CLAUSES
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+The EXCEPT operator in SQL Server is used to return all the records from the left query that do not exist in the right query. Here are some examples:
+
+# Syntax
+
+SELECT column1, column2
+FROM table1
+EXCEPT
+SELECT column1, column2
+FROM table2;
+
+
+# Example 1: Simple EXCEPT
+Suppose we have two tables:
+
+Table1: Employees
+
+| EmployeeID | Name |
+|-------------|------|
+| 1           | John |
+| 2           | Emma |
+| 3           | Michael|
+
+Table2: Contractors
+
+| ContractorID | Name |
+|---------------|------|
+| 1             | John |
+| 4             | Sophia |
+| 5             | William|
+
+To find the employees who are not contractors:
+
+
+SELECT Name
+FROM Employees
+EXCEPT
+SELECT Name
+FROM Contractors;
+
+
+Result:
+
+| Name     |
+|----------|
+| Emma     |
+| Michael  |
+
+# Example 2: EXCEPT with Multiple Columns
+Suppose we have two tables:
+
+Table1: Orders
+
+| OrderID | CustomerID | OrderDate |
+|----------|-------------|-----------|
+| 1        | 1           | 2022-01-01|
+| 2        | 2           | 2022-01-15|
+| 3        | 3           | 2022-02-01|
+
+Table2: CancelledOrders
+
+| OrderID | CustomerID | CancelDate |
+|----------|-------------|------------|
+| 1        | 1           | 2022-01-05 |
+| 3        | 3           | 2022-02-10 |
+
+To find the orders that have not been cancelled:
+
+
+SELECT OrderID, CustomerID
+FROM Orders
+EXCEPT
+SELECT OrderID, CustomerID
+FROM CancelledOrders;
+
+
+Result:
+
+| OrderID | CustomerID |
+|----------|-------------|
+| 2        | 2           |
+
+*******************************************************************************************************************************************************************************************************
+
+The INTERSECT operator in SQL Server is used to return all the records that exist in both the left and right queries. Here are some examples:
+
+# Syntax
+
+SELECT column1, column2
+FROM table1
+INTERSECT
+SELECT column1, column2
+FROM table2;
+
+
+# Example 1: Simple INTERSECT
+Suppose we have two tables:
+
+Table1: Employees
+
+| EmployeeID | Name |
+|-------------|------|
+| 1           | John |
+| 2           | Emma |
+| 3           | Michael|
+
+Table2: Contractors
+
+| ContractorID | Name |
+|---------------|------|
+| 1             | John |
+| 4             | Sophia |
+| 5             | William|
+
+To find the employees who are also contractors:
+
+
+SELECT Name
+FROM Employees
+INTERSECT
+SELECT Name
+FROM Contractors;
+
+
+Result:
+
+| Name |
+|------|
+| John |
+
+# Example 2: INTERSECT with Multiple Columns
+Suppose we have two tables:
+
+Table1: Orders
+
+| OrderID | CustomerID | OrderDate |
+|----------|-------------|-----------|
+| 1        | 1           | 2022-01-01|
+| 2        | 2           | 2022-01-15|
+| 3        | 3           | 2022-02-01|
+
+Table2: ShippedOrders
+
+| OrderID | CustomerID | ShipDate |
+|----------|-------------|----------|
+| 1        | 1           | 2022-01-05 |
+| 2        | 2           | 2022-01-20 |
+| 3        | 3           | 2022-02-10 |
+
+To find the orders that have been shipped:
+
+
+SELECT OrderID, CustomerID
+FROM Orders
+INTERSECT
+SELECT OrderID, CustomerID
+FROM ShippedOrders;
+
+
+Result:
+
+| OrderID | CustomerID |
+|----------|-------------|
+| 1        | 1           |
+| 2        | 2           |
+| 3        | 3           |
+
+*******************************************************************************************************************************************************************************************************
+The IIF clause in SQL Server is a shorthand way of writing a simple IF-THEN-ELSE statement. It was introduced in SQL Server 2012.
+
+# Syntax
+
+IIF ( boolean_expression, true_value, false_value )
+
+
+# Parameters
+- boolean_expression: The condition to evaluate.
+- true_value: The value to return if the condition is true.
+- false_value: The value to return if the condition is false.
+
+# Example 1: Simple IIF Clause
+
+SELECT IIF ( 5 > 3, 'True', 'False' ) AS Result;
+
+
+Result:
+
+| Result |
+|--------|
+| True   |
+
+# Example 2: IIF Clause in a SELECT Statement
+
+SELECT *, IIF ( Age > 18, 'Adult', 'Minor' ) AS AgeGroup
+FROM Customers;
+
+
+Result:
+
+| CustomerID | Name | Age | AgeGroup |
+|-------------|------|-----|-----------|
+| 1           | John | 25  | Adult     |
+| 2           | Emma | 17  | Minor     |
+
+# Example 3: IIF Clause with NULL Values
+
+SELECT IIF ( NULL = 5, 'True', 'False' ) AS Result;
+
+
+Result:
+
+| Result |
+|--------|
+| False  |
+
+Note:
+
+- The IIF clause is a shorthand way of writing a simple IF-THEN-ELSE statement.
+- The IIF clause can be used in any query, including SELECT, UPDATE, and DELETE statements.
+- The IIF clause is not supported in earlier versions of SQL Server (prior to 2012).
+*******************************************************************************************************************************************************************************************************
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+WINDOW FUNCTIONS
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Window functions in SQL allow you to perform calculations across a set of rows that are related to the current row, such as aggregating values or ranking rows. Here are some common window functions with examples:
+
+Here's an explanation of all window functions with and without partitions, along with examples:
+
+# 1. ROW_NUMBER()
+- Returns a unique row number for each row within a partition of a result set.
+- Without partition: assigns a unique row number to each row in the result set.
+- With partition: assigns a unique row number to each row within each partition.
+
+Example without partition:
+
+SELECT *, ROW_NUMBER() OVER (ORDER BY Sales) AS RowNum
+FROM SalesData;
+
+
+Result:
+
+| Sales | RowNum |
+| --- | --- |
+| 100  | 1     |
+| 200  | 2     |
+| 300  | 3     |
+| 400  | 4     |
+| 500  | 5     |
+
+Example with partition:
+
+SELECT *, ROW_NUMBER() OVER (PARTITION BY Region ORDER BY Sales) AS RowNum
+FROM SalesData;
+
+
+Result:
+
+| Region | Sales | RowNum |
+| --- | --- | --- |
+| North | 100  | 1     |
+| North | 200  | 2     |
+| North | 300  | 3     |
+| South | 400  | 1     |
+| South | 500  | 2     |
+*******************************************************************************************************************************************************************************************************
+# 2. RANK()
+- Returns the rank of each row within a partition of a result set.
+- Without partition: assigns a rank to each row in the result set.
+- With partition: assigns a rank to each row within each partition.
+
+Example without partition:
+
+SELECT *, RANK() OVER (ORDER BY Sales DESC) AS SalesRank
+FROM SalesData;
+
+
+Result:
+
+| Sales | SalesRank |
+| --- | --- |
+| 500  | 1        |
+| 400  | 2        |
+| 300  | 3        |
+| 200  | 4        |
+| 100  | 5        |
+
+Example with partition:
+
+SELECT *, RANK() OVER (PARTITION BY Region ORDER BY Sales DESC) AS SalesRank
+FROM SalesData;
+
+
+Result:
+
+| Region | Sales | SalesRank |
+| --- | --- | --- |
+| North | 300  | 1        |
+| North | 200  | 2        |
+| North | 100  | 3        |
+| South | 500  | 1        |
+| South | 400  | 2        |
+*******************************************************************************************************************************************************************************************************
+# 3. DENSE_RANK()
+- Returns the dense rank of each row within a partition of a result set.
+- Without partition: assigns a dense rank to each row in the result set.
+- With partition: assigns a dense rank to each row within each partition.
+
+Example without partition:
+
+SELECT *, DENSE_RANK() OVER (ORDER BY Sales DESC) AS SalesRank
+FROM SalesData;
+
+
+Result:
+
+| Sales | SalesRank |
+| --- | --- |
+| 500  | 1        |
+| 400  | 2        |
+| 300  | 3        |
+| 200  | 4        |
+| 100  | 5        |
+
+Example with partition:
+
+SELECT *, DENSE_RANK() OVER (PARTITION BY Region ORDER BY Sales DESC) AS SalesRank
+FROM SalesData;
+
+
+Result:
+
+| Region | Sales | SalesRank |
+| --- | --- | --- |
+| North | 300  | 1        |
+| North | 200  | 2        |
+| North | 100  | 3        |
+| South | 500  | 1        |
+| South | 400  | 2        |
+*******************************************************************************************************************************************************************************************************
+# 4. NTILE()
+- Divides a result set into a specified number of groups.
+- Without partition: divides the result set into groups.
+- With partition: divides each partition into groups.
+
+Example without partition:
+
+SELECT *, NTILE(4) OVER (ORDER BY Sales) AS Quartile
+FROM SalesData;
+
+
+Result:
+
+| Sales | Quartile |
+| --- | --- |
+| 100  | 1       |
+| 200  | 1       |
+| 300  | 2       |
+| 400  | 3       |
+| 500  | 4       |
+
+Example with partition:
+
+SELECT *, NTILE(2) OVER (PARTITION BY Region ORDER BY Sales) AS Half
+FROM SalesData;
+
+
+Result:
+
+| Region | Sales | Half |
+| --- | --- | --- |
+| North | 100  | 1   |
+| North | 200  | 2   |
+| North | 300  | 1   |
+| South | 400  | 1   |
+| South | 500  | 2   |
+*******************************************************************************************************************************************************************************************************
+
+# LEAD
+The LEAD function returns the value of a column from a row that is a specified number of rows ahead of the current row.
+
+Syntax
+
+LEAD(column_name, offset, default_value) OVER (ORDER BY column_name)
+
+
+- column_name: the column for which you want to retrieve a value from a future row.
+- offset: the number of rows ahead of the current row from which to retrieve the value.
+- default_value: the value to return if there is no row within the specified offset.
+
+Example
+
+SELECT *, LEAD(Sales, 1, 0) OVER (ORDER BY Date) AS NextSales
+FROM SalesData;
+
+
+Result:
+
+| Date       | Sales | NextSales |
+|------------|-------|-----------|
+| 2022-01-01 | 100   | 200       |
+| 2022-01-02 | 200   | 300       |
+| 2022-01-03 | 300   | 400       |
+| 2022-01-04 | 400   | 0         |
+*******************************************************************************************************************************************************************************************************
+# LAG
+The LAG function returns the value of a column from a row that is a specified number of rows behind the current row.
+
+Syntax
+
+LAG(column_name, offset, default_value) OVER (ORDER BY column_name)
+
+
+- column_name: the column for which you want to retrieve a value from a previous row.
+- offset: the number of rows behind the current row from which to retrieve the value.
+- default_value: the value to return if there is no row within the specified offset.
+
+Example
+
+SELECT *, LAG(Sales, 1, 0) OVER (ORDER BY Date) AS PrevSales
+FROM SalesData;
+
+
+Result:
+
+| Date       | Sales | PrevSales |
+|------------|-------|-----------|
+| 2022-01-01 | 100   | 0         |
+| 2022-01-02 | 200   | 100       |
+| 2022-01-03 | 300   | 200       |
+| 2022-01-04 | 400   | 300       |
+*******************************************************************************************************************************************************************************************************
+Here are examples of the LEAD and LAG window functions with partitions:
+
+# LEAD with Partition
+The LEAD function returns the value of a column from a row that is a specified number of rows ahead of the current row, within each partition.
+
+Syntax
+
+LEAD(column_name, offset, default_value) OVER (PARTITION BY column_name ORDER BY column_name)
+
+
+Example
+
+SELECT *, LEAD(Sales, 1, 0) OVER (PARTITION BY Region ORDER BY Date) AS NextSales
+FROM SalesData;
+
+
+Result:
+
+| Region | Date       | Sales | NextSales |
+|--------|------------|-------|-----------|
+| North  | 2022-01-01 | 100   | 200       |
+| North  | 2022-01-02 | 200   | 300       |
+| North  | 2022-01-03 | 300   | 0         |
+| South  | 2022-01-01 | 400   | 500       |
+| South  | 2022-01-02 | 500   | 0         |
+*******************************************************************************************************************************************************************************************************
+# LAG with Partition
+The LAG function returns the value of a column from a row that is a specified number of rows behind the current row, within each partition.
+
+Syntax
+
+LAG(column_name, offset, default_value) OVER (PARTITION BY column_name ORDER BY column_name)
+
+
+Example
+
+SELECT *, LAG(Sales, 1, 0) OVER (PARTITION BY Region ORDER BY Date) AS PrevSales
+FROM SalesData;
+
+
+Result:
+
+| Region | Date       | Sales | PrevSales |
+|--------|------------|-------|-----------|
+| North  | 2022-01-01 | 100   | 0         |
+| North  | 2022-01-02 | 200   | 100       |
+| North  | 2022-01-03 | 300   | 200       |
+| South  | 2022-01-01 | 400   | 0         |
+| South  | 2022-01-02 | 500   | 400       |
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+STORED PROCEDURES
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Here's an overview of stored procedures in SQL Server, along with examples:
+
+# What are Stored Procedures?
+
+Stored procedures are precompiled SQL statements that perform a specific task or set of tasks. 
+They are stored in the database and can be executed repeatedly, making them a useful tool for improving database performance and simplifying complex queries.
+
+
+# Benefits of Stored Procedures
+1. Improved performance: Stored procedures are precompiled, which means they execute faster than regular SQL queries.
+2. Security: Stored procedures can help protect sensitive data by encapsulating complex logic and limiting access to specific users.
+3. Reusability: Stored procedures can be reused across multiple applications and queries.
+4. Easier maintenance: Stored procedures can be modified or updated without affecting the underlying application code.
+
+# Creating a Stored Procedure
+The basic syntax for creating a stored procedure is:
+
+CREATE PROCEDURE procedure_name
+    (@parameter1 data_type, @parameter2 data_type, ...)
+AS
+BEGIN
+    -- SQL statements
+END
+
+Here's an example:
+
+CREATE PROCEDURE GetEmployeeDetails
+    (@EmployeeID int)
+AS
+BEGIN
+    SELECT * FROM Employees WHERE EmployeeID = @EmployeeID
+END
+
+# Executing a Stored Procedure
+To execute a stored procedure, use the EXECUTE statement:
+
+EXEC procedure_name (@parameter1 = value1, @parameter2 = value2, ...)
+
+Here's an example:
+
+EXEC GetEmployeeDetails @EmployeeID = 1
+
+# Input and Output Parameters
+Stored procedures can take input parameters, which are used to pass values to the procedure. Output parameters can be used to return values from the procedure.
+
+# Example with Input and Output Parameters
+Here's an example of a stored procedure that takes an input parameter and returns an output parameter:
+
+CREATE PROCEDURE GetEmployeeName
+    (@EmployeeID int, @Name nvarchar(50) OUTPUT)
+AS
+BEGIN
+    SELECT @Name = Name FROM Employees WHERE EmployeeID = @EmployeeID
+END
+
+To execute this procedure and retrieve the output parameter:
+
+DECLARE @Name nvarchar(50)
+EXECUTE GetEmployeeName @EmployeeID = 1, @Name OUTPUT
+PRINT @Name
+
+# Modifying a Stored Procedure
+To modify a stored procedure, use the ALTER PROCEDURE statement:
+
+ALTER PROCEDURE procedure_name
+    (@parameter1 data_type, @parameter2 data_type, ...)
+AS
+BEGIN
+    -- modified SQL statements
+END
+
+# Dropping a Stored Procedure
+To drop a stored procedure, use the DROP PROCEDURE statement:
+
+DROP PROCEDURE procedure_name
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+FUNCTIONS
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Scalar Functions
+Return a single value.
+
+Example
+
+CREATE FUNCTION fn_GetEmployeeName
+    (@EmployeeID int)
+RETURNS nvarchar(50)
+AS
+BEGIN
+    DECLARE @Name nvarchar(50)
+    SELECT @Name = Name FROM Employees WHERE EmployeeID = @EmployeeID
+    RETURN @Name
+END
+GO
+
+SELECT dbo.fn_GetEmployeeName(1) AS EmployeeName
+
+
+# Table-Valued Functions
+Return a table.
+
+Example
+
+CREATE FUNCTION fn_GetEmployeeDetails
+    (@EmployeeID int)
+RETURNS @EmployeeDetails TABLE
+(
+    EmployeeID int,
+    Name nvarchar(50),
+    LastAccessed datetime
+)
+AS
+BEGIN
+    INSERT INTO @EmployeeDetails
+    SELECT EmployeeID, Name, LastAccessed FROM Employees WHERE EmployeeID = @EmployeeID
+    RETURN
+END
+GO
+
+SELECT * FROM dbo.fn_GetEmployeeDetails(1)
+
+
+# Aggregate Functions
+Perform calculations on a set of values.
+
+Example
+
+CREATE FUNCTION fn_GetAverageSalary
+    (@DepartmentID int)
+RETURNS decimal(10, 2)
+AS
+BEGIN
+    DECLARE @AverageSalary decimal(10, 2)
+    SELECT @AverageSalary = AVG(Salary) FROM Employees WHERE DepartmentID = @DepartmentID
+    RETURN @AverageSalary
+END
+GO
+
+SELECT dbo.fn_GetAverageSalary(1) AS AverageSalary
+
+
+# System Functions
+Perform various system-related tasks.
+
+Example
+
+SELECT GETDATE() AS CurrentDate
+SELECT @@VERSION AS SQLServerVersion
+
+
+# User-Defined Functions
+Created by users to perform specific tasks.
+
+Example
+
+CREATE FUNCTION fn_GetFullName
+    (@FirstName nvarchar(50), @LastName nvarchar(50))
+RETURNS nvarchar(100)
+AS
+BEGIN
+    DECLARE @FullName nvarchar(100)
+    SET @FullName = @FirstName + ' ' + @LastName
+    RETURN @FullName
+END
+GO
+
+SELECT dbo.fn_GetFullName('John', 'Doe') AS FullName
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TRIGGERS
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# What is a Trigger?
+A trigger is a stored procedure that automatically executes when a specific event occurs, such as an INSERT, UPDATE, or DELETE operation.
+
+# Types of Triggers
+1. After Triggers: Execute after the triggering event.
+2. Instead Of Triggers: Execute instead of the triggering event.
+3. DDL Triggers: Execute in response to DDL (Data Definition Language) events, such as CREATE, ALTER, or DROP.
+
+# Creating a Trigger
+
+CREATE TRIGGER trigger_name
+ON table_name
+AFTER/INSTEAD OF {INSERT, UPDATE, DELETE}
+AS
+BEGIN
+    -- Trigger code
+END
+
+# Example 1: After Trigger
+
+CREATE TRIGGER trg_AuditInsert
+ON Customers
+AFTER INSERT
+AS
+BEGIN
+    INSERT INTO AuditLog (TableName, Action, DateTime)
+    VALUES ('Customers', 'INSERT', GETDATE())
+END
+
+This trigger inserts a new record into the AuditLog table whenever a new customer is inserted.
+
+# Example 2: Instead Of Trigger
+
+CREATE TRIGGER trg_PreventDelete
+ON Customers
+INSTEAD OF DELETE
+AS
+BEGIN
+    UPDATE Customers
+    SET Active = 0
+    WHERE CustomerID IN (SELECT CustomerID FROM deleted)
+END
+
+This trigger prevents the deletion of customers and instead sets the Active flag to 0.
+
+# Example 3: DDL Trigger
+
+CREATE TRIGGER trg_AuditDDL
+ON DATABASE
+FOR CREATE_TABLE, ALTER_TABLE, DROP_TABLE
+AS
+BEGIN
+    INSERT INTO AuditLog (TableName, Action, DateTime)
+    VALUES (EVENTDATA().value('(/EVENT_INSTANCE/ObjectName)[1]', 'nvarchar(128)'), EVENTDATA().value('(/EVENT_INSTANCE/EventType)[1]', 'nvarchar(128)'), GETDATE())
+END
+
+This trigger audits DDL events, such as CREATE, ALTER, and DROP TABLE operations.
+
+# Dropping a Trigger
+
+DROP TRIGGER trigger_name
+
+# Altering a Trigger
+
+ALTER TRIGGER trigger_name
+ON table_name
+AFTER/INSTEAD OF {INSERT, UPDATE, DELETE}
+AS
+BEGIN
+    -- New trigger code
+END
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TRANSACTIONS
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# What is a Transaction?
+A transaction is a sequence of operations performed as a single, all-or-nothing unit of work.
+
+# Properties of Transactions
+1. Atomicity: Ensures that either all changes are made or none are made.
+2. Consistency: Ensures that the database remains in a consistent state.
+3. Isolation: Ensures that concurrent transactions do not interfere with each other.
+4. Durability: Ensures that once a transaction is committed, its changes are permanent.
+
+# Transaction Control Language (TCL)
+1. BEGIN TRANSACTION: Starts a new transaction.
+2. COMMIT TRANSACTION: Saves the changes made in the transaction.
+3. ROLLBACK TRANSACTION: Undoes the changes made in the transaction.
+
+# Example 1: Simple Transaction
+
+BEGIN TRANSACTION
+INSERT INTO Customers (Name, Address) VALUES ('John Doe', '123 Main St')
+INSERT INTO Orders (CustomerID, OrderDate) VALUES (1, GETDATE())
+COMMIT TRANSACTION
+
+This transaction inserts a new customer and an order for that customer.
+
+# Example 2: Transaction with Rollback
+
+BEGIN TRANSACTION
+INSERT INTO Customers (Name, Address) VALUES ('Jane Doe', '456 Elm St')
+INSERT INTO Orders (CustomerID, OrderDate) VALUES (2, GETDATE())
+ROLLBACK TRANSACTION
+
+This transaction inserts a new customer and an order, but then rolls back the changes.
+
+# Example 3: Transaction with Savepoint
+
+BEGIN TRANSACTION
+INSERT INTO Customers (Name, Address) VALUES ('John Smith', '789 Oak St')
+SAVE TRANSACTION MySavepoint
+INSERT INTO Orders (CustomerID, OrderDate) VALUES (3, GETDATE())
+ROLLBACK TRANSACTION MySavepoint
+COMMIT TRANSACTION
+
+This transaction inserts a new customer, saves a savepoint, inserts an order, rolls back to the savepoint, and then commits the transaction.
+
+# Example 4: Nested Transactions
+
+BEGIN TRANSACTION
+INSERT INTO Customers (Name, Address) VALUES ('Jane Smith', '901 Maple St')
+BEGIN TRANSACTION
+INSERT INTO Orders (CustomerID, OrderDate) VALUES (4, GETDATE())
+COMMIT TRANSACTION
+COMMIT TRANSACTION
+
+This transaction starts a new transaction, inserts a new customer, starts another transaction, inserts an order, commits the inner transaction, and then commits the outer transaction.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
