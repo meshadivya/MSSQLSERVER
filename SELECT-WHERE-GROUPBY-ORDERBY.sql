@@ -108,7 +108,7 @@ HAVING AVG(Salary) > 50000;
 SELECT DepartmentID, AVG(Salary) AS AverageSalary
 FROM Employees
 GROUP BY DepartmentID
-ORDER BY AverageSalary DESC;
+ORDER BY Avg(salary) DESC;
 
 
 --GROUP BY with Aggregate Functions
